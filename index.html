@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PPWR para gestores de residuos · Guía de consulta, edición 0.3.1</title>
+<title>PPWR para gestores de residuos · Guía de consulta, edición 0.4</title>
 <meta name="description" content="Notas de trabajo sobre el Reglamento (UE) 2025/40 de envases, ordenadas según lo que pasa en una planta de gestión de residuos.">
 <meta name="author" content="Sergio Pelayo, Pelayo Ingeniería Digital">
 <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
@@ -162,6 +162,36 @@ dl.gloss dd{margin:0;font-size:17px;color:var(--ink-2)}
   .review details{display:block}.review details>p{display:block}.review summary::after{content:""}
   .unit{break-before:page;padding-top:0}
 }
+
+/* buscador */
+.ask{padding-bottom:44px}
+.ask label{display:block;font-family:var(--sans);font-size:15px;font-stretch:90%;font-weight:600;color:var(--ink-2);margin:0 0 8px}
+.ask-box{position:relative;max-width:var(--measure)}
+.ask-box input{width:100%;font-family:var(--serif);font-size:20px;color:var(--ink);background:var(--paper);border:0;border-bottom:2px solid var(--ink);padding:10px 92px 10px 0;border-radius:0;outline:none;-webkit-appearance:none}
+.ask-box input::-webkit-search-cancel-button,.ask-box input::-webkit-search-decoration{-webkit-appearance:none;display:none}
+.ask-box input::placeholder{color:var(--ink-3);font-style:italic}
+.ask-box input:focus{border-bottom-color:var(--blue)}
+.ask-box .clear{position:absolute;right:0;bottom:12px;font-family:var(--sans);font-size:14px;font-stretch:90%;color:var(--blue-ink);background:none;border:0;cursor:pointer;padding:0;display:none}
+.ask-box.has .clear{display:block}
+.ask-try{font-family:var(--sans);font-size:14px;font-stretch:90%;color:var(--ink-3);margin-top:10px;max-width:var(--measure)}
+.ask-try button{font:inherit;color:var(--blue-ink);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.ask-out{max-width:var(--measure);margin-top:18px}
+.ask-out[hidden]{display:none}
+.ans{border-left:3px solid var(--blue);padding:4px 0 4px 18px;margin:0 0 22px}
+.ans .q{font-family:var(--sans);font-size:14px;font-stretch:90%;color:var(--ink-3);margin:0 0 4px}
+.ans .a{font-size:19px;line-height:1.55;margin:0 0 6px}
+.ans a{font-family:var(--sans);font-size:14.5px;font-stretch:90%}
+.hits-h{font-family:var(--sans);font-size:14px;font-stretch:90%;color:var(--ink-3);margin:0 0 6px}
+.hits{list-style:none;margin:0;padding:0}
+.hits li{border-top:1px solid var(--line-2);padding:12px 0}
+.hits a{display:block;text-decoration:none;color:var(--ink)}
+.hits .where{display:block;font-family:var(--sans);font-size:13.5px;font-stretch:90%;color:var(--blue-ink);margin-bottom:3px}
+.hits .snip{font-size:17px;line-height:1.5;color:var(--ink-2)}
+.hits mark,.flash mark{background:rgba(216,152,32,.28);color:inherit;padding:0 1px}
+.none{font-style:italic;color:var(--ink-2)}
+.flash{animation:flash 2.2s ease-out}
+@keyframes flash{0%,40%{background:rgba(216,152,32,.22)}100%{background:transparent}}
+@media (prefers-reduced-motion: reduce){.flash{animation:none;outline:2px solid var(--gold)}}
 </style>
 </head>
 <body>
@@ -174,11 +204,25 @@ dl.gloss dd{margin:0;font-size:17px;color:var(--ink-2)}
 </header>
 
 <div class="page title">
-  <p class="edition">Guía de consulta, edición 0.3.1</p>
+  <p class="edition">Guía de consulta, edición 0.4</p>
   <h1>PPWR para gestores de residuos</h1>
   <p class="dek">Notas de trabajo sobre el Reglamento (UE) 2025/40 de envases y residuos de envases, ordenadas según lo que pasa en una planta: qué entra, cómo se clasifica, qué sale y qué datos hay que poder justificar.</p>
   <div class="byline"><span>Por <b>Sergio Pelayo</b>, Pelayo Ingeniería Digital, en pleno trabajo con Medio Ambiente de Acerinox&nbsp;Europa&nbsp;S.A.U.</span><span>Actualizada el 26 de octubre de 2026</span></div>
 </div>
+
+<section class="page ask" aria-labelledby="ask-l" role="search">
+  <label id="ask-l" for="ask-in">Pregunta o busca en la guía</label>
+  <div class="ask-box" id="ask-box">
+    <input id="ask-in" type="search" autocomplete="off" spellcheck="false" placeholder="Por ejemplo: ¿qué hago con un bidón con restos?" aria-describedby="ask-try" aria-controls="ask-out">
+    <button class="clear" id="ask-clear" type="button">Borrar</button>
+  </div>
+  <p class="ask-try" id="ask-try">Prueba con:
+    <button type="button" data-q="¿Sigue vigente el RD 1055/2022?">¿sigue vigente el RD 1055/2022?</button>,
+    <button type="button" data-q="productor del producto y productor del residuo">productor del producto o del residuo</button>,
+    <button type="button" data-q="¿Cuándo es la recogida separada del 90 %?">recogida separada del 90 %</button>
+  </p>
+  <div class="ask-out" id="ask-out" aria-live="polite" hidden></div>
+</section>
 
 <nav class="page contents" aria-label="Contenido">
   <h2>Contenido</h2>
@@ -404,9 +448,164 @@ dl.gloss dd{margin:0;font-size:17px;color:var(--ink-2)}
     <div>
       <p class="who">Guía elaborada y publicada por Pelayo Ingeniería Digital, en pleno trabajo con Medio Ambiente de Acerinox&nbsp;Europa&nbsp;S.A.U.</p>
       <p>Resumen propio a partir del curso «PPWR y residuos de envases: guía práctica para gestores de residuos» y del Reglamento (UE) 2025/40. Es material de consulta: no sustituye al texto legal ni a la autorización de cada instalación.</p>
-      <p>Edición 0.3.1, 26 de octubre de 2026. Contacto en <a href="https://pelayoingenieriadigital.es" target="_blank" rel="noopener">pelayoingenieriadigital.es</a>.</p>
+      <p>Edición 0.4, 26 de octubre de 2026. Contacto en <a href="https://pelayoingenieriadigital.es" target="_blank" rel="noopener">pelayoingenieriadigital.es</a>.</p>
     </div>
   </div>
 </footer>
+<script>
+(function(){
+  /* ---------- Normalización en español ---------- */
+  var STOP=("a al algo ante antes como con contra cual cuales cuando de del desde donde dos e el ella ellas ellos en entre era es esa ese eso esta este esto estos estas fue ha hay hace hacer hacen la las le les lo los mas me mi mis muy ni no nos o os otra otro para pero poco por porque puede pueden que quien se sea ser si sin sobre son su sus tambien te tiene tienen todo todos tu un una uno unos unas va y ya yo cual cuál qué que como debo debe deben tengo hago hacemos pasa sirve significa quiere decir cosa cosas").split(" ");
+  var STOPSET={}; STOP.forEach(function(w){STOPSET[w]=1;});
+  var SYN={ "rd":"real decreto","ppwr":"reglamento","2025/40":"reglamento","reglamento":"ppwr","bidon":"envase industrial","bidones":"envase industrial","garrafa":"envase industrial","big":"big bags","pale":"palet","pales":"palet","palet":"pale","palets":"pale","rap":"responsabilidad ampliada productor","scrap":"sistema colectivo","ler":"codigo residuo","fds":"ficha seguridad","plazo":"fecha","plazos":"fecha","cuando":"fecha","fechas":"fecha","vigor":"aplicacion","obligatorio":"obligacion","carton":"carton","film":"film plastico" };
+  function fold(s){return s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/ñ/g,"n");}
+  function stem(w){
+    if(/^\d/.test(w)) return w;
+    if(w.length>5) w=w.replace(/(aciones|amientos|imientos)$/,"").replace(/(acion|amiento|imiento|mente)$/,"");
+    if(w.length>4) w=w.replace(/(es|s)$/,"");
+    if(w.length>4) w=w.replace(/[aeo]$/,"");
+    return w;
+  }
+  function terms(s,expand){
+    var raw=fold(s).replace(/[^a-z0-9%/.\- ]+/g," ").split(/\s+/).filter(function(w){return w && !STOPSET[w] && (w.length>1 || /\d/.test(w));});
+    var out=[];
+    raw.forEach(function(w){
+      w=w.replace(/^[.\-]+|[.\-]+$/g,""); if(!w) return;
+      out.push(stem(w));
+      if(expand && SYN[w]) SYN[w].split(" ").forEach(function(x){out.push(stem(x));});
+    });
+    return out;
+  }
+
+  /* ---------- Índice a partir del propio contenido ---------- */
+  var docs=[];
+  function slug(t){return fold(t).replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,48);}
+  document.querySelectorAll("main .unit").forEach(function(unit){
+    var unitTitle=(unit.querySelector(".unit-h h2")||{}).textContent||"";
+    var unitNum=(unit.querySelector(".unit-h .num")||{}).textContent;
+    var current={title:unitTitle,id:unit.id};
+    var walker=unit.querySelectorAll(".text > p, .text > h3, .text > aside.note, .text li, .text tbody tr, .text figcaption, .review details, dl.gloss > div");
+    walker.forEach(function(el){
+      if(el.tagName==="H3"){ if(!el.id) el.id=unit.id+"-"+slug(el.textContent); current={title:el.textContent,id:el.id}; return; }
+      if(el.closest(".review") && el.tagName!=="DETAILS") return;
+      var text=el.innerText||el.textContent; text=text.replace(/\s+/g," ").trim(); if(text.length<12) return;
+      if(el.tagName==="TR"){ text=[].map.call(el.cells,function(c){return c.textContent.trim();}).join(" · "); }
+      if(el.tagName==="DETAILS"){ text=el.querySelector("summary").textContent.trim()+" "+(el.querySelector("p")||{textContent:""}).textContent.trim(); }
+      var where=(unitNum?("Unidad "+unitNum+" · "):"")+(current.title===unitTitle?unitTitle:unitTitle+" › "+current.title);
+      if(unit.id==="glosario") where="Glosario";
+      if(!el.id) el.id="b"+docs.length;
+      docs.push({el:el,text:text,where:where,t:terms(text+" "+current.title,false)});
+    });
+  });
+  var cal=document.querySelector(".cal .lede");
+  if(cal){ cal.id="cal-lede"; docs.push({el:cal,text:cal.textContent.replace(/\s+/g," ").trim()+" Hitos: etiquetado armonizado 2027 a 2029; etiqueta en contenedores de recogida 2028; envases excesivos y espacio vacío 2028 a 2030; recogida separada del 90 % en 2029; hitos de reciclabilidad 2030; reciclado a escala 2035.",where:"Calendario",t:[]}); docs[docs.length-1].t=terms(docs[docs.length-1].text,false); }
+
+  var N=docs.length, df={}, avg=0;
+  docs.forEach(function(d){ avg+=d.t.length; var seen={}; d.t.forEach(function(w){ if(!seen[w]){ seen[w]=1; df[w]=(df[w]||0)+1; } }); });
+  avg=avg/Math.max(N,1);
+  function bm25(q,d){
+    var s=0, len=d.t.length;
+    q.forEach(function(w){
+      var f=0; d.t.forEach(function(x){ if(x===w || (w.length>=5 && x.indexOf(w)===0)) f++; });
+      if(!f) return;
+      var idf=Math.log(1+(N-(df[w]||0)+.5)/((df[w]||0)+.5));
+      s+=idf*(f*2.2)/(f+1.2*(.25+.75*len/avg));
+    });
+    return s;
+  }
+
+  /* ---------- Respuestas directas (redactadas a partir de los apuntes) ---------- */
+  var FAQ=[
+    {k:"cuando aplica ppwr reglamento fecha aplicacion general entrada vigor 12 agosto 2026",q:"¿Desde cuándo se aplica el PPWR?",a:"Entró en vigor el 11 de febrero de 2025 y se aplica con carácter general desde el 12 de agosto de 2026. Muchas obligaciones llegan después, por fases, hasta 2035.",to:"cal-lede"},
+    {k:"rd 1055/2022 real decreto vigente sigue aplica derogado",q:"¿Sigue vigente el RD 1055/2022?",a:"Sí, en todo lo que no contradiga al Reglamento (UE) 2025/40, hasta que se apruebe el nuevo real decreto de envases. Si chocan, manda el Reglamento.",to:"u1"},
+    {k:"directiva 94/62 derogada",q:"¿Qué pasa con la Directiva 94/62/CE?",a:"Queda derogada desde el 12 de agosto de 2026, con algunas disposiciones transitorias. Deja de ser la referencia.",to:"u1"},
+    {k:"ley 7/2022 residuos marco general",q:"¿Qué papel tiene la Ley 7/2022?",a:"Sigue siendo el marco general de residuos: autorizaciones, trazabilidad, archivo cronológico y régimen sancionador.",to:"u1"},
+    {k:"por que afecta gestor obligaciones productor datos evidencias",q:"¿Por qué le afecta al gestor si las obligaciones son del productor?",a:"Porque esas obligaciones llegan a la planta como peticiones de datos y evidencias: cuánto se recoge, cómo se clasifica, qué se recicla y adónde va.",to:"u1"},
+    {k:"procesos revisar recepcion clasificacion calidad expedicion informacion",q:"¿Qué procesos hay que revisar?",a:"Cinco: recepción, clasificación y tratamiento, control de calidad, expedición e información a terceros.",to:"u1"},
+    {k:"evidencias documentos guardar conservar reciclado efectivo pesadas albaranes certificados",q:"¿Qué evidencias hay que guardar?",a:"Pesadas, partes de entrada, controles de calidad, registros de clasificación, albaranes de salida y certificados de destino.",to:"u1"},
+    {k:"recogida separada 90 % 2029",q:"¿Cuándo llega la recogida separada del 90 %?",a:"En 2029, para determinados formatos de envase. Conviene tener ya ordenados los datos de cantidades recogidas y salidas.",to:"cal-lede"},
+    {k:"etiquetado armonizado etiqueta contenedores 2027 2028 2029",q:"¿Cuándo llega el etiquetado armonizado?",a:"Entre 2027 y 2029 de forma escalonada. El etiquetado de los contenedores de recogida, a partir de 2028.",to:"cal-lede"},
+    {k:"productor producto productor residuo diferencia",q:"¿Qué diferencia hay entre productor del producto y productor del residuo?",a:"El productor del producto pone en el mercado el producto envasado y asume la RAP. El productor del residuo es quien lo genera en su actividad, por ejemplo un almacén que desembala mercancía.",to:"u2"},
+    {k:"tipos envase domestico comercial industrial transporte servicio",q:"¿Qué tipos de envase hay?",a:"Doméstico, comercial, industrial, de transporte y de servicio. Se clasifican por material, función, origen, estado y destino previsto.",to:"u2"},
+    {k:"envase restos contenido bidon big bags caducado peligroso",q:"¿Qué hago con un envase que trae restos?",a:"Manda el contenido: identifícalo (ficha de seguridad, LER, peligrosidad) y comprueba que la autorización lo cubre. Si no, se rechaza o se deriva a un gestor especializado. Nunca se mezcla con envases limpios.",to:"u2"},
+    {k:"pale pales palet palets madera reutilizable residuo reparar",q:"¿Un palé es residuo?",a:"Depende de su estado. Mientras siga en un sistema de reutilización no es residuo. Se separan por estado: reutilización, reparación, reciclado o valorización, y rechazo si están contaminados.",to:"u2"},
+    {k:"compostable plastico mezclar",q:"¿Los envases compostables van con el plástico?",a:"No. En el reciclado mecánico se comportan como impropios. Siguen las instrucciones del flujo que les corresponda.",to:"u2"},
+    {k:"rap responsabilidad ampliada productor",q:"¿Qué es la RAP?",a:"La responsabilidad ampliada del productor: quien pone el producto en el mercado organiza y financia la gestión de sus residuos.",to:"glosario"},
+    {k:"scrap sistema colectivo",q:"¿Qué es un SCRAP?",a:"Un sistema colectivo de responsabilidad ampliada del productor, que cumple la RAP por cuenta de varios productores.",to:"glosario"},
+    {k:"impropio impropios",q:"¿Qué es un impropio?",a:"Material que no corresponde al flujo en el que llega y le resta calidad.",to:"glosario"},
+    {k:"ler codigo residuo lista europea",q:"¿Qué es el código LER?",a:"El código de la Lista Europea de Residuos que identifica cada residuo en la documentación de traslado.",to:"glosario"},
+    {k:"registrar mezcla fraccion generica trazabilidad",q:"¿Cómo se registra una entrada mezclada?",a:"No como una sola fracción genérica: si luego se separan palés, film y cartón, el registro debe reflejar esas fracciones, los rechazos y los destinos.",to:"u2"}
+  ];
+  FAQ.forEach(function(f){ f.t=terms(f.k+" "+f.q,false); });
+  function bestFaq(q,qx){
+    var best=null, bs=0;
+    FAQ.forEach(function(f){
+      function m(w,x){return x===w || (w.length>=5 && (x.indexOf(w)===0 || w.indexOf(x)===0));}
+      var hit=0, occ=0;
+      q.forEach(function(w,i){
+        var alts=[w].concat(qx.filter(function(x){return q.indexOf(x)<0;}));
+        var ok=f.t.some(function(x){return m(w,x);}) || (i===q.length-1 && false);
+        if(ok){ hit++; occ+=f.t.filter(function(x){return m(w,x);}).length; }
+      });
+      var extra=qx.filter(function(x){return q.indexOf(x)<0 && f.t.some(function(y){return m(x,y);});}).length;
+      var cov=Math.min(1,(hit+Math.min(extra,1))/Math.max(q.length,1));
+      var sc=cov+0.05*occ;
+      if(cov>=0.5 && (hit>=1) && sc>bs){ bs=sc; best=f; }
+    });
+    return best;
+  }
+
+  /* ---------- Interfaz ---------- */
+  var input=document.getElementById("ask-in"), out=document.getElementById("ask-out"), box=document.getElementById("ask-box");
+  function esc(s){return s.replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+  function highlight(text,q){
+    var html=esc(text), words=[];
+    text.split(/[\s,.;:()·«»"¿?¡!]+/).forEach(function(w){ var st=stem(fold(w)); if(st && q.some(function(x){return x.length>1 && (st===x || (x.length>=5 && st.indexOf(x)===0));})) words.push(w); });
+    words.sort(function(a,b){return b.length-a.length;}).forEach(function(w){
+      if(w.length<2) return; var re=new RegExp("(^|[^\\wáéíóúñü])("+esc(w).replace(/[.*+?^${}()|[\]\\\/]/g,"\\$&")+")(?=$|[^\\wáéíóúñü])","g");
+      html=html.replace(re,"$1<mark>$2</mark>");
+    });
+    return html;
+  }
+  function snippet(text,q){
+    if(text.length<=260) return text;
+    var f=fold(text), pos=-1;
+    q.some(function(w){ var i=f.indexOf(w); if(i>=0){pos=i;return true;} return false; });
+    var start=Math.max(0,(pos<0?0:pos)-90); var s=text.slice(start,start+260);
+    return (start>0?"… ":"")+s.replace(/^\S*\s/,start>0?"":"$&")+(start+260<text.length?" …":"");
+  }
+  function go(id){
+    var el=document.getElementById(id); if(!el) return;
+    if(el.tagName==="DETAILS") el.open=true;
+    el.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"center"});
+    el.classList.remove("flash"); void el.offsetWidth; el.classList.add("flash");
+  }
+  out.addEventListener("click",function(e){ var a=e.target.closest("a[data-go]"); if(!a) return; e.preventDefault(); go(a.getAttribute("data-go")); history.replaceState(null,"","#"+a.getAttribute("data-go")); });
+
+  var timer;
+  function run(){
+    var raw=input.value.trim(); box.classList.toggle("has",raw.length>0);
+    if(raw.length<2){ out.hidden=true; out.innerHTML=""; return; }
+    var q=terms(raw,false), qx=terms(raw,true);
+    if(!q.length){ out.hidden=true; return; }
+    var faq=bestFaq(q,qx);
+    var ranked=docs.map(function(d){return {d:d,s:bm25(qx,d)};}).filter(function(r){return r.s>0.4;}).sort(function(a,b){return b.s-a.s;}).slice(0,6);
+    var h="";
+    if(faq){ h+='<div class="ans"><p class="q">'+esc(faq.q)+'</p><p class="a">'+esc(faq.a)+'</p><a href="#'+faq.to+'" data-go="'+faq.to+'">Ver en la guía</a></div>'; }
+    if(ranked.length){
+      h+='<p class="hits-h">'+(faq?"También en la guía":"En la guía")+'</p><ul class="hits">';
+      ranked.forEach(function(r){ h+='<li><a href="#'+r.d.el.id+'" data-go="'+r.d.el.id+'"><span class="where">'+esc(r.d.where)+'</span><span class="snip">'+highlight(snippet(r.d.text,q),q)+'</span></a></li>'; });
+      h+='</ul>';
+    }
+    if(!faq && !ranked.length){ h='<p class="none">No encuentro nada sobre eso en las unidades publicadas. Prueba con otras palabras; las unidades 3 a 9 se irán añadiendo.</p>'; }
+    out.innerHTML=h; out.hidden=false;
+  }
+  input.addEventListener("input",function(){ clearTimeout(timer); timer=setTimeout(run,120); });
+  input.addEventListener("keydown",function(e){ if(e.key==="Escape"){ input.value=""; run(); } if(e.key==="Enter"){ var a=out.querySelector("a[data-go]"); if(a){ e.preventDefault(); go(a.getAttribute("data-go")); } } });
+  document.getElementById("ask-clear").addEventListener("click",function(){ input.value=""; run(); input.focus(); });
+  document.querySelectorAll(".ask-try button").forEach(function(b){ b.addEventListener("click",function(){ input.value=b.getAttribute("data-q"); run(); input.focus(); }); });
+  document.addEventListener("keydown",function(e){ if(e.key==="/" && document.activeElement!==input && !/input|textarea/i.test(document.activeElement.tagName)){ e.preventDefault(); input.focus(); } });
+})();
+</script>
 </body>
 </html>
