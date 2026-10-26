@@ -3,520 +3,409 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Guía PPWR para gestores de residuos · v0.2</title>
-<meta name="description" content="El Reglamento (UE) 2025/40 de envases explicado para el día a día: qué cambia, a quién afecta y qué revisar en planta, contratos y datos.">
-<meta name="author" content="Sergio Pelayo · Pelayo Ingeniería Digital">
+<title>PPWR para gestores de residuos · Guía de consulta, edición 0.3</title>
+<meta name="description" content="Notas de trabajo sobre el Reglamento (UE) 2025/40 de envases, ordenadas según lo que pasa en una planta de gestión de residuos.">
+<meta name="author" content="Sergio Pelayo, Pelayo Ingeniería Digital">
 <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="assets/favicon-192.png" sizes="192x192" type="image/png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-<meta name="theme-color" content="#0098F8">
-<meta property="og:type" content="website">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:type" content="article">
 <meta property="og:site_name" content="Pelayo Ingeniería Digital">
-<meta property="og:title" content="Guía PPWR para gestores de residuos">
-<meta property="og:description" content="El Reglamento (UE) 2025/40 de envases explicado para el día a día: qué cambia, a quién afecta y qué revisar en planta, contratos y datos.">
+<meta property="og:title" content="PPWR para gestores de residuos">
+<meta property="og:description" content="Notas de trabajo sobre el Reglamento (UE) 2025/40 de envases: qué cambia, a quién afecta y qué revisar en planta, contratos y datos.">
 <meta property="og:url" content="https://sergiopelayo.github.io/guia-ppwr/">
-<meta property="og:image" content="https://sergiopelayo.github.io/guia-ppwr/assets/og-image-v02.png">
+<meta property="og:image" content="https://sergiopelayo.github.io/guia-ppwr/assets/og-image-v03.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Guía PPWR para gestores de residuos, de Pelayo Ingeniería Digital">
+<meta property="og:image:alt" content="PPWR para gestores de residuos. Guía de consulta de Pelayo Ingeniería Digital">
 <meta property="og:locale" content="es_ES">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://sergiopelayo.github.io/guia-ppwr/assets/og-image-v02.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<meta name="twitter:image" content="https://sergiopelayo.github.io/guia-ppwr/assets/og-image-v03.png">
+<link rel="preload" href="assets/fonts/source-serif-4-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+@font-face{font-family:"Archivo";font-style:normal;font-weight:100 900;font-stretch:62% 125%;font-display:swap;src:url(assets/fonts/archivo-latin-wdth-normal.woff2) format("woff2-variations"),url(assets/fonts/archivo-latin-wdth-normal.woff2) format("woff2")}
+@font-face{font-family:"Source Serif";font-style:normal;font-weight:200 900;font-display:swap;src:url(assets/fonts/source-serif-4-latin-opsz-normal.woff2) format("woff2-variations"),url(assets/fonts/source-serif-4-latin-opsz-normal.woff2) format("woff2")}
+@font-face{font-family:"Source Serif";font-style:italic;font-weight:200 900;font-display:swap;src:url(assets/fonts/source-serif-4-latin-opsz-italic.woff2) format("woff2-variations"),url(assets/fonts/source-serif-4-latin-opsz-italic.woff2) format("woff2")}
+
 :root{
-  --blue:#0098F8; --blue-ink:#0071BC; --blue-deep:#0B3A5C; --gold:#D89820; --gold-ink:#8F6210;
-  --navy:#0C1E2E; --bg:#FFFFFF; --page:#F6F8FA; --surface:#FFFFFF; --ink:#132130; --ink-2:#4E5D6B; --ink-3:#7A8894;
-  --rule:#E1E7ED; --blue-tint:#EAF6FF; --gold-tint:#FCF4E3; --bad:#B8362F; --bad-tint:#FCEDEC;
-  --shadow:0 1px 2px rgba(16,34,52,.05),0 4px 16px rgba(16,34,52,.06);
-  --radius:12px;
+  --paper:#FFFFFF; --ink:#1B1E22; --ink-2:#555B62; --ink-3:#8A9096; --line:#D9DCDF; --line-2:#ECEEF0; --tint:#F7F6F2;
+  --blue:#0098F8; --blue-ink:#0067A8; --gold:#D89820; --gold-ink:#8A5D0B; --red:#A8322B;
+  --sans:"Archivo",system-ui,sans-serif; --serif:"Source Serif",Georgia,serif;
+  --measure:40rem; --margin:15rem; --gap:3rem;
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#0E1822; --page:#0B141D; --surface:#131F2B; --ink:#E6EDF3; --ink-2:#A6B3BF; --ink-3:#7F8D99; --rule:#243444;
-  --blue-ink:#5CC0FF; --gold-ink:#F0BF5C; --blue-tint:#0F2A40; --gold-tint:#2E2412; --bad:#F0827B; --bad-tint:#371C1B;
-  --shadow:0 1px 2px rgba(0,0,0,.3),0 4px 16px rgba(0,0,0,.25);
+@media (prefers-color-scheme: dark){:root{
+  --paper:#15171A; --ink:#E9E6E0; --ink-2:#B3B0AA; --ink-3:#85827D; --line:#34373B; --line-2:#26292C; --tint:#1D2023;
+  --blue-ink:#6CC6FF; --gold-ink:#E8B455; --red:#EE8A82;
 }}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:96px}
-@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
-body{margin:0;background:var(--page);color:var(--ink);font-family:"Public Sans",system-ui,sans-serif;font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-a{color:var(--blue-ink);text-underline-offset:2px}
-a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
-h1,h2,h3,h4{line-height:1.2;margin:0}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--serif);font-size:19px;line-height:1.6;font-optical-sizing:auto;font-kerning:normal;font-variant-ligatures:common-ligatures;-webkit-font-smoothing:antialiased}
+a{color:var(--blue-ink);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 p{margin:0 0 1em}
-.wrap{max-width:78rem;margin:0 auto;padding:0 24px}
-@media (max-width:600px){.wrap{padding:0 16px}}
+@media (min-width:700px){.text p{hyphens:auto}}
+b,strong{font-weight:650}
+h1,h2,h3{font-family:var(--sans);font-weight:700;margin:0;line-height:1.15}
 
-/* ---------- Cabecera ---------- */
-.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid #E6EBF0}
-@media (prefers-color-scheme: dark){.top{background:rgba(14,24,34,.92);border-color:var(--rule)}}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:80px}
-.logo{display:flex;align-items:center;border-radius:8px}
-.logo img{height:60px;width:auto;display:block}
-@media (prefers-color-scheme: dark){.logo{background:#fff;padding:4px 10px}.logo img{height:52px}}
-.top-right{display:flex;align-items:center;gap:18px}
-.top-meta{font-size:13px;color:var(--ink-2);text-align:right;line-height:1.35}
-.top-meta b{color:var(--ink);font-weight:600}
-.btn{display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:#fff;text-decoration:none;font-weight:600;font-size:14.5px;padding:10px 16px;border-radius:9px;white-space:nowrap;transition:background .15s}
-.btn:hover{background:#0083D6}
-.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--rule)}
-.btn.ghost:hover{background:var(--page)}
-@media (max-width:720px){.top-meta{display:none}.logo img{height:48px}}
-@media (max-width:420px){.top .btn{display:none}}
-.progress{position:absolute;left:0;bottom:-1px;height:2px;background:var(--gold);width:0;transition:width .1s linear}
+.page{max-width:calc(var(--measure) + var(--margin) + var(--gap) + 7rem);margin:0 auto;padding:0 24px 0 7rem}
+@media (max-width:1100px){.page{padding-left:24px;max-width:calc(var(--measure) + 48px)}}
 
-/* ---------- Portada ---------- */
-.hero{background:var(--bg);border-bottom:1px solid var(--rule)}
-.hero .wrap{padding-top:56px;padding-bottom:48px}
-.kicker{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;color:var(--blue-ink);background:var(--blue-tint);padding:6px 12px;border-radius:999px;margin-bottom:20px}
-.kicker i{width:8px;height:8px;border-radius:50%;background:var(--blue);display:inline-block}
-.hero h1{font-size:clamp(32px,5.2vw,56px);font-weight:800;letter-spacing:-0.025em;max-width:18ch;line-height:1.06}
-.hero .lead{font-size:clamp(17px,2vw,20px);color:var(--ink-2);max-width:58ch;margin:20px 0 28px}
-.facts{display:flex;flex-wrap:wrap;gap:12px 28px;margin:0 0 36px;padding:0;list-style:none}
-.facts li{display:flex;flex-direction:column;font-size:13.5px;color:var(--ink-2)}
-.facts b{font-size:22px;color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums;line-height:1.2}
-.facts .bar{display:block;width:120px;height:6px;background:var(--rule);border-radius:3px;margin-top:8px;overflow:hidden}
-.facts .bar span{display:block;height:100%;background:var(--blue);border-radius:3px}
+/* cabecera */
+.mast{border-bottom:1px solid var(--line)}
+.mast .page{display:flex;justify-content:space-between;align-items:center;padding-top:14px;padding-bottom:14px}
+.mast img{height:54px;width:auto;display:block}
+@media (prefers-color-scheme: dark){.mast .logo{background:#fff;padding:4px 8px;border-radius:4px}}
+.mast nav{font-family:var(--sans);font-size:15px;font-stretch:90%}
+.mast nav a{color:var(--ink-2);text-decoration:none}
+.mast nav a:hover{color:var(--ink);text-decoration:underline}
 
-.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 22rem;gap:48px;align-items:start;margin-bottom:8px}
-@media (max-width:960px){.hero-grid{grid-template-columns:1fr;gap:8px}}
-.essential{background:var(--surface);border:1px solid var(--rule);border-top:4px solid var(--gold);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px 22px 10px;margin-bottom:36px}
-.essential h2{font-size:17px;font-weight:800;margin-bottom:14px}
-.essential ol{list-style:none;counter-reset:e;margin:0;padding:0}
-.essential li{counter-increment:e;display:grid;grid-template-columns:28px 1fr;gap:10px;font-size:15px;line-height:1.45;margin-bottom:14px}
-.essential li::before{content:counter(e);width:26px;height:26px;border-radius:50%;background:var(--blue-tint);color:var(--blue-ink);font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center}
-.tl-card{margin:0;background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px 24px 16px}
-.tl-card h2{font-size:18px;font-weight:700;margin-bottom:4px}
-.tl-card .sub{font-size:14.5px;color:var(--ink-2);margin-bottom:12px}
-.tl-scroll{overflow-x:auto;margin:0 -8px;padding:0 8px}
-.tl-scroll svg{min-width:680px;width:100%;height:auto;display:block}
+/* portada */
+.title{padding-top:72px;padding-bottom:40px}
+.title .edition{font-family:var(--sans);font-size:15px;font-stretch:90%;color:var(--ink-2);margin:0 0 18px}
+.title h1{font-size:clamp(44px,8vw,86px);font-stretch:72%;font-weight:750;letter-spacing:-0.01em;line-height:.95;max-width:12ch}
+.title .dek{font-size:clamp(19px,2.2vw,23px);line-height:1.5;color:var(--ink-2);max-width:34em;margin:26px 0 0}
+.byline{font-family:var(--sans);font-size:15px;font-stretch:90%;color:var(--ink-2);margin-top:28px;padding-top:14px;border-top:2px solid var(--ink);max-width:var(--measure);display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px 24px}
+.byline b{color:var(--ink);font-weight:600}
 
-/* ---------- Estructura ---------- */
-.layout{display:grid;grid-template-columns:16rem minmax(0,1fr);gap:56px;padding-top:40px;padding-bottom:72px}
-@media (max-width:960px){.layout{grid-template-columns:1fr;gap:24px}}
-.toc{position:sticky;top:104px;align-self:start}
-.toc-card{background:var(--surface);border:1px solid var(--rule);border-radius:var(--radius);padding:16px 12px}
-.toc h2{font-size:13px;font-weight:700;color:var(--ink-3);margin:0 8px 10px;letter-spacing:.02em}
-.toc ol{list-style:none;margin:0;padding:0}
-.toc a{display:grid;grid-template-columns:1.9rem 1fr;gap:2px;padding:8px;border-radius:8px;text-decoration:none;color:var(--ink);font-size:14.5px;line-height:1.35;border-left:3px solid transparent}
-.toc a:hover{background:var(--page)}
-.toc a.active{background:var(--blue-tint);border-left-color:var(--blue)}
-.toc .n{color:var(--blue-ink);font-weight:700;font-variant-numeric:tabular-nums}
-.toc .soon,.toc .soon .n{color:var(--ink-3)}
-.toc .extra{border-top:1px solid var(--rule);margin-top:8px;padding-top:8px}
-@media (max-width:960px){
-  .toc{position:static}
-  .toc ol{display:grid;grid-template-columns:1fr 1fr;gap:2px}
-}
-@media (max-width:540px){.toc ol{grid-template-columns:1fr}}
+/* índice */
+.contents{padding-bottom:48px}
+.contents h2,.cal h2{font-size:15px;font-stretch:90%;font-weight:600;color:var(--ink-2);margin:0 0 10px}
+.contents ol{list-style:none;margin:0;padding:0;max-width:var(--measure);font-family:var(--sans);font-size:17px}
+.contents li{display:grid;grid-template-columns:2.2rem 1fr auto;align-items:baseline;border-bottom:1px solid var(--line-2);padding:7px 0}
+.contents li .n{font-weight:650;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.contents li a{color:var(--ink);text-decoration:none}
+.contents li a:hover{text-decoration:underline}
+.contents li.on .n{color:var(--blue-ink)}
+.contents li .st{font-size:14px;font-stretch:90%;color:var(--ink-3)}
+.contents li.off{color:var(--ink-3)}
 
-main{min-width:0}
-.unit{background:var(--surface);border:1px solid var(--rule);border-radius:16px;box-shadow:var(--shadow);padding:40px clamp(20px,4vw,48px) 36px;margin-bottom:32px}
-.unit-head{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--rule)}
-.badge{width:60px;height:60px;border-radius:14px;background:linear-gradient(135deg,var(--blue) 0 55%,var(--gold) 55% 100%);color:#fff;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:800;font-variant-numeric:tabular-nums}
-.unit-head p{margin:0 0 4px;font-size:14px;color:var(--ink-3);font-weight:600}
-.unit h2{font-size:clamp(23px,3vw,30px);font-weight:800;letter-spacing:-0.015em}
-.unit h3{font-size:19px;font-weight:700;margin:36px 0 14px;display:flex;align-items:center;gap:10px}
-.unit h3::before{content:"";width:4px;height:20px;border-radius:2px;background:var(--blue);flex:none}
-.body{max-width:48rem}
+/* calendario */
+.cal{padding:40px 0 56px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--tint)}
+.cal .lede{font-size:18px;color:var(--ink-2);max-width:var(--measure);margin-bottom:20px}
+.cal-scroll{overflow-x:auto;margin-left:-4px}
+.cal svg{min-width:720px;width:100%;max-width:980px;height:auto;display:block}
+.cal svg text{font-family:var(--sans)}
 
-.idea{display:grid;grid-template-columns:auto 1fr;gap:14px;background:var(--gold-tint);border:1px solid rgba(216,152,32,.35);border-radius:var(--radius);padding:18px 20px;margin:0 0 8px;font-size:18px;line-height:1.5}
-.idea svg{width:26px;height:26px;margin-top:2px}
-.idea strong{display:block;font-size:13.5px;color:var(--gold-ink);font-weight:700;margin-bottom:2px}
+/* unidades */
+.unit{padding-top:72px;position:relative}
+.unit + .unit{border-top:1px solid var(--line);margin-top:24px}
+.unit-h{position:relative;max-width:var(--measure);margin-bottom:28px}
+.unit-h .num{position:absolute;left:-6.2rem;top:-.08em;width:5rem;text-align:right;font-family:var(--sans);font-stretch:72%;font-weight:300;font-size:92px;line-height:.82;color:var(--blue)}
+.unit-h .kick{font-family:var(--sans);font-size:15px;font-stretch:90%;color:var(--ink-2);margin:0 0 6px}
+.unit-h h2{font-size:clamp(30px,4vw,40px);font-stretch:80%;font-weight:700;letter-spacing:-0.005em}
+@media (max-width:1100px){.unit-h .num{position:static;display:block;text-align:left;font-size:64px;margin-bottom:6px;width:auto}}
+.text{max-width:var(--measure)}
+.text h3{font-size:22px;font-stretch:85%;font-weight:650;margin:44px 0 12px}
+.text .lead-in{font-size:21px;line-height:1.5}
+
+/* notas al margen */
+.note{float:right;clear:right;width:var(--margin);margin:4px calc(-1 * (var(--margin) + var(--gap))) 16px 0;font-family:var(--sans);font-size:15px;line-height:1.45;font-stretch:92%;color:var(--ink-2);border-top:2px solid var(--gold);padding-top:8px}
+.note b{display:block;color:var(--gold-ink);font-weight:650;margin-bottom:2px}
+.note.warn{border-top-color:var(--red)}
+.note.warn b{color:var(--red)}
+@media (max-width:1100px){.note{float:none;width:auto;margin:20px 0;border-top:0;border-left:3px solid var(--gold);padding:2px 0 2px 14px}.note.warn{border-left-color:var(--red)}}
 
 /* tablas */
-.tbl{overflow-x:auto;margin:0 0 20px;border:1px solid var(--rule);border-radius:var(--radius)}
-table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.45}
-th,td{text-align:left;vertical-align:top;padding:12px 14px;border-bottom:1px solid var(--rule)}
-th{background:var(--page);font-weight:700;font-size:13.5px;color:var(--ink-2)}
-tbody tr:last-child td{border-bottom:0}
-tbody tr:hover td{background:var(--blue-tint)}
-td:first-child{font-weight:600;color:var(--ink);min-width:9rem}
-td.hl{color:var(--blue-ink);font-weight:700}
+.tbl{overflow-x:auto;margin:6px 0 26px}
+table{border-collapse:collapse;width:100%;font-family:var(--sans);font-size:15.5px;font-stretch:94%;line-height:1.42}
+caption{caption-side:top;text-align:left;font-size:14px;color:var(--ink-3);padding-bottom:8px}
+thead th{font-weight:600;text-align:left;border-bottom:2px solid var(--ink);padding:0 12px 8px 0;vertical-align:bottom}
+td{border-bottom:1px solid var(--line);padding:10px 12px 10px 0;vertical-align:top}
+td:first-child{font-weight:600;min-width:9.5rem}
+tbody tr:last-child td{border-bottom:1px solid var(--ink)}
 
-ul.clean{list-style:none;padding:0;margin:0 0 20px}
-ul.clean li{position:relative;padding-left:22px;margin-bottom:10px}
-ul.clean li::before{content:"";position:absolute;left:4px;top:.62em;width:8px;height:8px;border-radius:2px;background:var(--blue);transform:rotate(45deg)}
-ol.steps{list-style:none;counter-reset:s;padding:0;margin:0 0 20px}
-ol.steps li{counter-increment:s;position:relative;padding:2px 0 12px 44px;border-left:2px solid var(--rule);margin-left:15px}
-ol.steps li:last-child{border-left-color:transparent;padding-bottom:0}
-ol.steps li::before{content:counter(s);position:absolute;left:-16px;top:0;width:30px;height:30px;border-radius:50%;background:var(--surface);border:2px solid var(--blue);color:var(--blue-ink);font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center}
+ol.proc{counter-reset:p;list-style:none;padding:0;margin:0 0 22px}
+ol.proc li{counter-increment:p;display:grid;grid-template-columns:2.1rem 1fr;margin-bottom:10px}
+ol.proc li::before{content:counter(p) ".";font-family:var(--sans);font-weight:650;color:var(--blue-ink);font-variant-numeric:tabular-nums}
+ul.plain{padding-left:1.1em;margin:0 0 22px}
+ul.plain li{margin-bottom:9px}
+ul.plain li::marker{color:var(--ink-3)}
+.rule{font-family:var(--sans);font-stretch:90%;font-size:17px;border-left:3px solid var(--blue);padding:4px 0 4px 16px;margin:4px 0 24px;color:var(--ink)}
 
-.pair{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:0 0 20px}
-@media (max-width:640px){.pair{grid-template-columns:1fr}}
-.pair div{border:1px solid var(--rule);border-radius:var(--radius);padding:16px 18px;font-size:15.5px;background:var(--page)}
-.pair b{display:block;margin-bottom:4px}
-.pair .no{border-color:rgba(184,54,47,.35);background:var(--bad-tint)}
-.pair .no b{color:var(--bad)}
-.formula{background:var(--blue-tint);border-radius:var(--radius);padding:14px 18px;font-weight:600;margin:0 0 20px}
-.formula span{color:var(--blue-ink)}
+figure{margin:12px 0 28px}
+figure svg{width:100%;height:auto;display:block}
+figure svg text{font-family:var(--sans)}
+figcaption{font-family:var(--sans);font-stretch:92%;font-size:14.5px;color:var(--ink-2);margin-top:10px;padding-top:8px;border-top:1px solid var(--line-2)}
 
-figure.diagram{margin:8px 0 20px;border:1px solid var(--rule);border-radius:var(--radius);padding:20px;background:var(--surface)}
-figure.diagram svg{width:100%;max-width:720px;height:auto;display:block;margin:0 auto}
-figure.diagram figcaption{font-size:14px;color:var(--ink-2);margin-top:12px;text-align:center}
+/* repaso */
+.review{margin-top:44px;border-top:2px solid var(--ink);padding-top:12px}
+.review h3{margin:0 0 6px;font-size:18px}
+.review details{border-bottom:1px solid var(--line);padding:12px 0}
+.review summary{cursor:pointer;list-style:none;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:baseline}
+.review summary::-webkit-details-marker{display:none}
+.review summary::after{content:"Ver respuesta";font-family:var(--sans);font-size:14px;font-stretch:90%;color:var(--blue-ink);white-space:nowrap}
+.review details[open] summary::after{content:"Ocultar"}
+.review details p{margin:8px 0 2px;font-style:italic;color:var(--ink-2)}
 
-/* autocomprobación */
-.check{border:1px solid var(--rule);border-radius:var(--radius);margin-top:36px;overflow:hidden}
-.check-head{display:flex;align-items:center;gap:10px;background:var(--blue-tint);padding:14px 20px;font-weight:700}
-.check-head svg{width:22px;height:22px}
-.check details{border-top:1px solid var(--rule);padding:14px 20px}
-.check summary{cursor:pointer;font-weight:600;list-style:none;display:grid;grid-template-columns:1fr 24px;gap:12px;align-items:start}
-.check summary::-webkit-details-marker{display:none}
-.check summary::after{content:"";width:10px;height:10px;border-right:2px solid var(--ink-3);border-bottom:2px solid var(--ink-3);transform:rotate(45deg);margin:6px auto 0;transition:transform .2s}
-.check details[open] summary::after{transform:rotate(-135deg);margin-top:10px}
-.check details p{margin:10px 0 0;color:var(--ink-2);border-left:3px solid var(--gold);padding-left:12px}
-
-/* próximas y glosario */
-.next{display:grid;grid-template-columns:repeat(auto-fill,minmax(14rem,1fr));gap:12px;list-style:none;padding:0;margin:0}
-.next li{border:1px dashed var(--rule);border-radius:var(--radius);padding:14px 16px;color:var(--ink-2);font-size:15px;background:var(--page)}
-.next b{display:block;color:var(--ink-3);font-size:13px;margin-bottom:2px}
-dl.gloss{display:grid;grid-template-columns:9rem 1fr;gap:0;margin:0;border:1px solid var(--rule);border-radius:var(--radius);overflow:hidden}
-dl.gloss dt,dl.gloss dd{margin:0;padding:12px 16px;border-bottom:1px solid var(--rule);font-size:15.5px}
-dl.gloss dt{font-weight:700;color:var(--blue-ink);background:var(--page)}
-dl.gloss dt:nth-last-of-type(1),dl.gloss dd:last-child{border-bottom:0}
-@media (max-width:540px){dl.gloss{grid-template-columns:1fr}dl.gloss dt{border-bottom:0;padding-bottom:4px}}
+/* glosario */
+dl.gloss{max-width:var(--measure);margin:0;columns:2 17rem;column-gap:2.5rem}
+dl.gloss div{break-inside:avoid;margin-bottom:16px}
+dl.gloss dt{font-family:var(--sans);font-weight:650}
+dl.gloss dd{margin:0;font-size:17px;color:var(--ink-2)}
 
 /* pie */
-.foot{background:var(--navy);color:#B9C7D3}
-.foot .wrap{padding-top:44px;padding-bottom:36px}
-.foot-grid{display:grid;grid-template-columns:auto 1fr auto;gap:32px;align-items:start}
-@media (max-width:820px){.foot-grid{grid-template-columns:1fr}}
-.foot-logo{background:#fff;border-radius:12px;padding:12px 16px;display:inline-block}
-.foot-logo img{height:64px;display:block}
-.foot h2{color:#fff;font-size:18px;margin-bottom:8px}
-.foot p{font-size:14.5px;margin:0 0 8px;max-width:56ch}
-.foot a{color:#8FD0FF}
-.foot .legal{border-top:1px solid #23384B;margin-top:32px;padding-top:16px;font-size:13px;color:#8396A7;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
-.totop{position:fixed;right:20px;bottom:20px;width:44px;height:44px;border-radius:50%;background:var(--surface);border:1px solid var(--rule);box-shadow:var(--shadow);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .2s;color:var(--ink)}
-.totop.show{opacity:1;pointer-events:auto}
+.colophon{margin-top:88px;border-top:1px solid var(--line);font-family:var(--sans);font-stretch:92%;font-size:15px;color:var(--ink-2)}
+.colophon .page{display:grid;grid-template-columns:auto 1fr;gap:28px;padding-top:32px;padding-bottom:44px;align-items:start}
+.colophon img{height:72px;width:auto;display:block}
+@media (prefers-color-scheme: dark){.colophon .mark{background:#fff;padding:6px;border-radius:4px}}
+.colophon p{margin:0 0 8px;max-width:var(--measure)}
+.colophon .who{color:var(--ink);font-weight:600}
+@media (max-width:560px){.colophon .page{grid-template-columns:1fr}}
 
-.s-ink{fill:var(--ink)} .s-ink2{fill:var(--ink-2)} .s-rule{stroke:var(--rule)} .s-edge{stroke:var(--ink-3)}
 @media print{
-  body{background:#fff}.top{position:static}.toc,.totop,.top .btn,.progress{display:none}
-  .layout{display:block}.unit{box-shadow:none;break-inside:auto}
-  .check details{display:block}.check details>*{display:block}
+  body{font-size:11pt}.mast nav{display:none}.cal{background:none}
+  .note{float:none;width:auto;margin:10px 0;border-top:0;border-left:2px solid #999;padding-left:10px}
+  .review details{display:block}.review details>p{display:block}.review summary::after{content:""}
+  .unit{break-before:page;padding-top:0}
 }
 </style>
 </head>
 <body>
 
-<header class="top">
-  <div class="wrap">
-    <a class="logo" href="https://pelayoingenieriadigital.es" target="_blank" rel="noopener" aria-label="Pelayo Ingeniería Digital, ir a la web">
-      <img src="assets/pid-logo-h.png" alt="Pelayo Ingeniería Digital · Tu compañero de negocios" width="180" height="60">
-    </a>
-    <div class="top-right">
-      <div class="top-meta"><b>Guía PPWR</b> · versión 0.2<br>Actualizada el 26-10-2026</div>
-      <a class="btn" href="https://pelayoingenieriadigital.es" target="_blank" rel="noopener">Contactar</a>
-    </div>
+<header class="mast">
+  <div class="page">
+    <a class="logo" href="https://pelayoingenieriadigital.es" target="_blank" rel="noopener"><img src="assets/pid-logo-h.png" alt="Pelayo Ingeniería Digital" width="162" height="54"></a>
+    <nav><a href="https://pelayoingenieriadigital.es" target="_blank" rel="noopener">pelayoingenieriadigital.es</a></nav>
   </div>
-  <div class="progress" id="progress" aria-hidden="true"></div>
 </header>
 
-<section class="hero">
-  <div class="wrap">
-    <div class="hero-grid"><div>
-    <span class="kicker"><i></i>Guía práctica de consulta</span>
-    <h1>El reglamento de envases, explicado para quien gestiona residuos</h1>
-    <p class="lead">Qué cambia con el Reglamento (UE) 2025/40 (PPWR), a quién afecta y qué hay que revisar en planta, en contratos y en datos. Sin jerga jurídica: lo que se necesita para el día a día.</p>
-    <ul class="facts">
-      <li><b>12 ago 2026</b>Aplicación general</li>
-      <li><b>2 de 9</b>Unidades publicadas<span class="bar"><span style="width:22%"></span></span></li>
-      <li><b>15 min</b>Lectura de lo publicado</li>
-    </ul>
-    </div>
-    <aside class="essential" aria-labelledby="es-h">
-      <h2 id="es-h">Lo esencial en 30 segundos</h2>
-      <ol>
-        <li><span>Desde el <b>12-08-2026</b> el PPWR se aplica directamente en toda la UE; el RD 1055/2022 sigue en lo que no choque.</span></li>
-        <li><span>Las obligaciones son sobre todo de productores, pero al gestor le llegan como <b>peticiones de datos y evidencias</b>.</span></li>
-        <li><span>Clasificar bien (qué es, de dónde viene, quién pide los datos) es la base de todo lo demás.</span></li>
-      </ol>
-    </aside>
-    </div>
+<div class="page title">
+  <p class="edition">Guía de consulta, edición 0.3</p>
+  <h1>PPWR para gestores de residuos</h1>
+  <p class="dek">Notas de trabajo sobre el Reglamento (UE) 2025/40 de envases y residuos de envases, ordenadas según lo que pasa en una planta: qué entra, cómo se clasifica, qué sale y qué datos hay que poder justificar.</p>
+  <div class="byline"><span>Por <b>Sergio Pelayo</b>, Pelayo Ingeniería Digital</span><span>Actualizada el 26 de octubre de 2026</span></div>
+</div>
 
-    <figure class="tl-card" aria-labelledby="tl-h">
-      <h2 id="tl-h">El PPWR se aplica desde agosto de 2026 y se endurece hasta 2035</h2>
-      <p class="sub">Hitos del Reglamento por año. La línea azul marca la aplicación general.</p>
-      <div class="tl-scroll">
-        <svg viewBox="0 0 900 300" role="img" aria-labelledby="tl-t">
-          <title id="tl-t">Calendario del PPWR: entrada en vigor 11 feb 2025, aplicación general 12 ago 2026 y obligaciones escalonadas hasta 2035</title>
-          <g font-family="Public Sans, sans-serif" font-size="13.5">
-            <g class="s-rule" stroke-width="1">
-              <line x1="230" y1="40" x2="230" y2="290"/><line x1="288" y1="40" x2="288" y2="290"/><line x1="346" y1="40" x2="346" y2="290"/><line x1="405" y1="40" x2="405" y2="290"/><line x1="463" y1="40" x2="463" y2="290"/><line x1="521" y1="40" x2="521" y2="290"/><line x1="579" y1="40" x2="579" y2="290"/><line x1="637" y1="40" x2="637" y2="290"/><line x1="695" y1="40" x2="695" y2="290"/><line x1="754" y1="40" x2="754" y2="290"/><line x1="812" y1="40" x2="812" y2="290"/>
-            </g>
-            <g class="s-ink2" font-size="12" text-anchor="middle">
-              <text x="230" y="30">2025</text><text x="288" y="30">2026</text><text x="346" y="30">2027</text><text x="405" y="30">2028</text><text x="463" y="30">2029</text><text x="521" y="30">2030</text><text x="579" y="30">2031</text><text x="637" y="30">2032</text><text x="695" y="30">2033</text><text x="754" y="30">2034</text><text x="812" y="30">2035</text>
-            </g>
-            <line x1="321" y1="66" x2="321" y2="290" stroke="#0098F8" stroke-width="1.5" stroke-dasharray="4 4"/>
-            <g class="s-ink">
-              <text x="0" y="60">Entrada en vigor</text>
-              <text x="0" y="90" font-weight="700">Aplicación general</text>
-              <text x="0" y="120">Etiquetado armonizado</text>
-              <text x="0" y="150">Etiqueta de contenedores</text>
-              <text x="0" y="180">Envases excesivos</text>
-              <text x="0" y="210">Recogida separada ≥ 90 %</text>
-              <text x="0" y="240">Hitos de reciclabilidad</text>
-              <text x="0" y="270">Reciclado a escala</text>
-            </g>
-            <path class="s-ink2" d="M235 48l8 8l-8 8l-8-8z"/><text class="s-ink2" x="252" y="60" font-size="12">11 feb 2025</text>
-            <path fill="#0098F8" d="M321 76l10 10l-10 10l-10-10z"/><text class="s-ink" x="339" y="90" font-size="12.5" font-weight="700">12 ago 2026</text>
-            <rect x="346" y="109" width="175" height="14" rx="7" fill="#D89820" fill-opacity=".22" stroke="#D89820"/><text class="s-ink2" x="530" y="120" font-size="12">2027 – 2029</text>
-            <path class="s-ink2" d="M405 138l8 8l-8 8l-8-8z"/><text class="s-ink2" x="420" y="150" font-size="12">2028</text>
-            <rect x="405" y="169" width="174" height="14" rx="7" fill="#D89820" fill-opacity=".22" stroke="#D89820"/><text class="s-ink2" x="588" y="180" font-size="12">2028 – 2030</text>
-            <path class="s-ink2" d="M463 198l8 8l-8 8l-8-8z"/><text class="s-ink2" x="478" y="210" font-size="12">2029</text>
-            <path class="s-ink2" d="M521 228l8 8l-8 8l-8-8z"/><text class="s-ink2" x="536" y="240" font-size="12">2030</text>
-            <path class="s-ink2" d="M812 258l8 8l-8 8l-8-8z"/><text class="s-ink2" x="827" y="270" font-size="12">2035 y después</text>
+<nav class="page contents" aria-label="Contenido">
+  <h2>Contenido</h2>
+  <ol>
+    <li class="on"><span class="n">1</span><a href="#u1">Nuevo marco europeo de envases</a><span class="st">7 min</span></li>
+    <li class="on"><span class="n">2</span><a href="#u2">Quién es quién y tipos de envase</a><span class="st">8 min</span></li>
+    <li class="off"><span class="n">3</span><span>Obligaciones nuevas y vigentes</span><span class="st">próximamente</span></li>
+    <li class="off"><span class="n">4</span><span>Responsabilidad ampliada del productor</span><span class="st">próximamente</span></li>
+    <li class="off"><span class="n">5</span><span>Papel práctico del gestor</span><span class="st">próximamente</span></li>
+    <li class="off"><span class="n">6</span><span>Operativa por flujos de envase</span><span class="st">próximamente</span></li>
+    <li class="off"><span class="n">7</span><span>Procesos, contratos y control documental</span><span class="st">próximamente</span></li>
+    <li class="off"><span class="n">8</span><span>Adaptar el modelo de negocio</span><span class="st">próximamente</span></li>
+    <li class="off"><span class="n">9</span><span>Casos prácticos y plan de acción</span><span class="st">próximamente</span></li>
+    <li class="on"><span class="n"></span><a href="#glosario">Glosario</a><span class="st"></span></li>
+  </ol>
+</nav>
+
+<section class="cal" aria-labelledby="cal-h">
+  <div class="page">
+    <h2 id="cal-h">Calendario</h2>
+    <p class="lede">El Reglamento se aplica en toda la UE desde el <b>12 de agosto de 2026</b>. A partir de ahí las obligaciones van entrando por fases hasta 2035.</p>
+    <div class="cal-scroll">
+      <svg viewBox="0 0 960 292" role="img" aria-labelledby="cal-t">
+        <title id="cal-t">Hitos del PPWR entre 2025 y 2035</title>
+        <g font-size="14">
+          <g stroke="var(--line)" stroke-width="1">
+            <line x1="250" y1="34" x2="250" y2="282"/><line x1="315" y1="34" x2="315" y2="282"/><line x1="380" y1="34" x2="380" y2="282"/><line x1="445" y1="34" x2="445" y2="282"/><line x1="510" y1="34" x2="510" y2="282"/><line x1="575" y1="34" x2="575" y2="282"/><line x1="640" y1="34" x2="640" y2="282"/><line x1="705" y1="34" x2="705" y2="282"/><line x1="770" y1="34" x2="770" y2="282"/><line x1="835" y1="34" x2="835" y2="282"/><line x1="900" y1="34" x2="900" y2="282"/>
           </g>
-        </svg>
-      </div>
-    </figure>
+          <line x1="250" y1="34" x2="930" y2="34" stroke="var(--ink)" stroke-width="1.5"/>
+          <g fill="var(--ink-2)" font-size="13" text-anchor="middle">
+            <text x="250" y="22">2025</text><text x="315" y="22">2026</text><text x="380" y="22">2027</text><text x="445" y="22">2028</text><text x="510" y="22">2029</text><text x="575" y="22">2030</text><text x="640" y="22">2031</text><text x="705" y="22">2032</text><text x="770" y="22">2033</text><text x="835" y="22">2034</text><text x="900" y="22">2035</text>
+          </g>
+          <line x1="354" y1="34" x2="354" y2="282" stroke="#0098F8" stroke-width="2"/>
+          <g fill="var(--ink)">
+            <text x="0" y="64">Entrada en vigor</text>
+            <text x="0" y="94" font-weight="650">Aplicación general</text>
+            <text x="0" y="124">Etiquetado armonizado</text>
+            <text x="0" y="154">Etiqueta en contenedores de recogida</text>
+            <text x="0" y="184">Envases excesivos y espacio vacío</text>
+            <text x="0" y="214">Recogida separada del 90 %</text>
+            <text x="0" y="244">Hitos de reciclabilidad</text>
+            <text x="0" y="274">Reciclado a escala</text>
+          </g>
+          <g fill="var(--ink-2)" font-size="13">
+            <circle cx="256" cy="59" r="4.5" fill="var(--ink)"/><text x="268" y="64">11 feb 2025</text>
+            <circle cx="354" cy="89" r="6" fill="#0098F8"/><text x="366" y="94" fill="var(--ink)" font-weight="650">12 ago 2026</text>
+            <rect x="380" y="117" width="195" height="8" fill="#D89820" opacity=".8"/><text x="585" y="124">2027 a 2029</text>
+            <circle cx="445" cy="149" r="4.5" fill="var(--ink)"/><text x="457" y="154">2028</text>
+            <rect x="445" y="177" width="195" height="8" fill="#D89820" opacity=".8"/><text x="650" y="184">2028 a 2030</text>
+            <circle cx="510" cy="209" r="4.5" fill="var(--ink)"/><text x="522" y="214">2029</text>
+            <circle cx="575" cy="239" r="4.5" fill="var(--ink)"/><text x="587" y="244">2030</text>
+            <circle cx="900" cy="269" r="4.5" fill="var(--ink)"/><text x="878" y="274" text-anchor="end">2035 en adelante</text>
+          </g>
+        </g>
+      </svg>
+    </div>
   </div>
 </section>
 
-<div class="wrap layout">
-  <nav class="toc" aria-label="Contenido de la guía">
-    <div class="toc-card">
-      <h2>Contenido</h2>
-      <ol>
-        <li><a href="#u1"><span class="n">1</span><span>Nuevo marco europeo de envases</span></a></li>
-        <li><a href="#u2"><span class="n">2</span><span>Quién es quién y tipos de envase</span></a></li>
-        <li><a href="#pronto" class="soon"><span class="n">3</span><span>Obligaciones nuevas y vigentes</span></a></li>
-        <li><a href="#pronto" class="soon"><span class="n">4</span><span>RAP y sistemas de cumplimiento</span></a></li>
-        <li><a href="#pronto" class="soon"><span class="n">5</span><span>Papel práctico del gestor</span></a></li>
-        <li><a href="#pronto" class="soon"><span class="n">6</span><span>Operativa por flujos</span></a></li>
-        <li><a href="#pronto" class="soon"><span class="n">7</span><span>Procesos, contratos y documentos</span></a></li>
-        <li><a href="#pronto" class="soon"><span class="n">8</span><span>Adaptar el modelo de negocio</span></a></li>
-        <li><a href="#pronto" class="soon"><span class="n">9</span><span>Casos prácticos y plan de acción</span></a></li>
-        <li class="extra"><a href="#glosario"><span class="n">A</span><span>Glosario</span></a></li>
-      </ol>
-    </div>
-  </nav>
+<main class="page">
 
-  <main>
-    <!-- UNIDAD 1 -->
-    <section class="unit" id="u1" aria-labelledby="u1-t">
-      <div class="unit-head">
-        <span class="badge" aria-hidden="true">1</span>
-        <div><p>Unidad 1 · 7 min de lectura</p><h2 id="u1-t">Nuevo marco europeo de envases</h2></div>
-      </div>
-      <div class="body">
-      <div class="idea"><svg viewBox="0 0 24 24" fill="none" stroke="#D89820" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3z"/></svg><div><strong>En una frase</strong>El PPWR se aplica directamente desde el 12-08-2026 y convive con el RD 1055/2022: si chocan, manda el Reglamento; en lo demás, el Real Decreto sigue vigente.</div></div>
+  <!-- 1 -->
+  <article class="unit" id="u1" aria-labelledby="u1-t">
+    <header class="unit-h"><span class="num" aria-hidden="true">1</span><p class="kick">7 minutos de lectura</p><h2 id="u1-t">Nuevo marco europeo de envases</h2></header>
+    <div class="text">
+      <aside class="note"><b>Para recordar</b>Si el Reglamento y el RD 1055/2022 chocan, manda el Reglamento. En lo demás, el Real Decreto sigue vigente.</aside>
+      <p class="lead-in">Desde el 12 de agosto de 2026 el Reglamento (UE) 2025/40 se aplica directamente en España, sin necesidad de transposición. No sustituye de golpe a la norma española: convive con ella.</p>
+      <p>Hasta que se apruebe el nuevo real decreto de envases, el RD 1055/2022 sigue aplicándose en todo lo que no contradiga al Reglamento. La Ley 7/2022 continúa siendo el marco general de residuos.</p>
 
       <h3>Qué norma manda en cada caso</h3>
       <div class="tbl"><table>
         <thead><tr><th>Norma</th><th>Situación</th><th>Qué supone para el gestor</th></tr></thead>
         <tbody>
-          <tr><td class="hl">Reglamento (UE) 2025/40</td><td>Aplicación directa desde el 12-08-2026, obligaciones por fases</td><td>Hay que incorporarlo al análisis de obligaciones, contratos y procedimientos</td></tr>
-          <tr><td>Directiva 94/62/CE</td><td>Derogada desde el 12-08-2026, con algunos transitorios</td><td>Deja de ser la referencia; se lee conforme al PPWR</td></tr>
-          <tr><td>RD 1055/2022</td><td>Vigente en lo que no contradiga al PPWR, hasta el nuevo real decreto</td><td>Sigue mandando en información, RAP y envases domésticos, comerciales e industriales</td></tr>
-          <tr><td>Ley 7/2022</td><td>Marco general de residuos</td><td>Autorizaciones, trazabilidad, archivo cronológico y régimen sancionador</td></tr>
-          <tr><td>Directiva (UE) 2019/904</td><td>Modificada para encajar con el PPWR</td><td>Puede afectar a flujos de plásticos de un solo uso</td></tr>
-          <tr><td>Nuevo RD de envases</td><td>Pendiente</td><td>Cuando salga, toca revisar procedimientos otra vez</td></tr>
+          <tr><td>Reglamento (UE) 2025/40</td><td>Aplicación directa desde el 12-08-2026, con obligaciones por fases</td><td>Entra en el análisis de obligaciones, contratos y procedimientos</td></tr>
+          <tr><td>Directiva 94/62/CE</td><td>Derogada desde el 12-08-2026, con algunos transitorios</td><td>Deja de ser la referencia</td></tr>
+          <tr><td>RD 1055/2022</td><td>Vigente en lo no incompatible, hasta el nuevo real decreto</td><td>Sigue rigiendo información, RAP y envases domésticos, comerciales e industriales</td></tr>
+          <tr><td>Ley 7/2022</td><td>Marco general de residuos</td><td>Autorizaciones, trazabilidad, archivo cronológico y sanciones</td></tr>
+          <tr><td>Directiva (UE) 2019/904</td><td>Modificada para encajar con el Reglamento</td><td>Puede afectar a flujos de plásticos de un solo uso</td></tr>
+          <tr><td>Nuevo RD de envases</td><td>Pendiente</td><td>Habrá que revisar procedimientos cuando se publique</td></tr>
         </tbody>
       </table></div>
 
-      <div class="pair">
-        <div class="no"><b>Error frecuente 1</b>Trabajar como si el PPWR no existiera.</div>
-        <div class="no"><b>Error frecuente 2</b>Dar por muerto el RD 1055/2022.</div>
-      </div>
-
+      <aside class="note warn"><b>Dos errores habituales</b>Trabajar como si el Reglamento no existiera, o dar por derogado el RD 1055/2022.</aside>
       <h3>Por qué le afecta al gestor</h3>
-      <p>Muchas obligaciones recaen en productores y fabricantes, pero llegan a la planta convertidas en peticiones de datos y evidencias. Los datos dejan de ser un trámite: son la prueba de que hay reciclado efectivo.</p>
-      <ul class="clean">
-        <li><b>Reciclabilidad.</b> Tiene que cumplirse en condiciones reales de recogida, clasificación y reciclado, no solo sobre el papel.</li>
-        <li><b>Contenido reciclado.</b> La calidad, homogeneidad y trazabilidad del material de salida pasan a ser ventaja comercial.</li>
-        <li><b>Reutilización.</b> Hay que distinguir el envase que vuelve al circuito del residuo de envase.</li>
-        <li><b>Etiquetado armonizado.</b> Ayuda a separar, pero exige coherencia con contenedores e instrucciones.</li>
-        <li><b>Restricciones.</b> Algunos formatos se reducen o desaparecen, y eso cambia los flujos que llegan a planta.</li>
+      <p>La mayoría de las obligaciones nuevas son de productores y fabricantes. Pero llegan a la planta en forma de peticiones de datos y de evidencias: cuánto se recoge, cómo se clasifica, qué se recicla y adónde va. Los registros dejan de ser un trámite y pasan a ser la prueba del reciclado efectivo.</p>
+      <ul class="plain">
+        <li><b>Reciclabilidad.</b> Tiene que darse en condiciones reales de recogida, clasificación y reciclado.</li>
+        <li><b>Contenido reciclado.</b> Aumenta la demanda de material recuperado de calidad y con trazabilidad.</li>
+        <li><b>Reutilización.</b> Hay que distinguir el envase que vuelve al circuito del que ya es residuo.</li>
+        <li><b>Etiquetado armonizado.</b> Facilita la separación si las instrucciones y los contenedores van en la misma línea.</li>
+        <li><b>Restricciones.</b> Algunos formatos se reducirán o desaparecerán, y eso cambiará lo que entra en planta.</li>
       </ul>
 
-      <h3>Los cinco procesos que conviene revisar ya</h3>
-      <ol class="steps">
-        <li><b>Recepción:</b> origen, tipo de envase, material, impropios, peligrosidad y documentación de traslado.</li>
-        <li><b>Clasificación y tratamiento:</b> flujos separados con criterio y rechazos registrados.</li>
-        <li><b>Control de calidad:</b> qué se controla, cómo se documenta y quién lo valida.</li>
-        <li><b>Expedición:</b> cantidades, calidades, destinos y compradores.</li>
-        <li><b>Información a terceros:</b> qué datos se dan, en qué formato, cada cuánto y quién responde.</li>
+      <h3>Cinco procesos que conviene revisar ya</h3>
+      <ol class="proc">
+        <li><span><b>Recepción.</b> Origen, tipo de envase, material, impropios, peligrosidad y documentación de traslado.</span></li>
+        <li><span><b>Clasificación y tratamiento.</b> Flujos separados con criterio y rechazos registrados.</span></li>
+        <li><span><b>Control de calidad.</b> Qué se controla, cómo se documenta y quién lo valida.</span></li>
+        <li><span><b>Expedición.</b> Cantidades, calidades, destinos y compradores.</span></li>
+        <li><span><b>Información a terceros.</b> Qué datos se facilitan, en qué formato, con qué frecuencia y quién responde.</span></li>
       </ol>
-      <p class="formula">Para cada obligación: <span>obligación → impacto → cómo cumplir → quién se encarga → qué evidencia se guarda</span></p>
-      <p>Ayuda mucho una matriz interna con tres columnas: obligaciones propias del gestor, las que llegan por cliente o SCRAP y las pendientes de desarrollo.</p>
+      <p class="rule">Para cada obligación: qué exige, a qué proceso afecta, cómo se cumple, quién se encarga y qué evidencia se guarda.</p>
+      <p>Una matriz con tres columnas ayuda a ordenarlo: obligaciones propias del gestor, las que llegan por el cliente o el SCRAP, y las que están pendientes de desarrollo.</p>
 
-      <div class="check">
-        <div class="check-head"><svg viewBox="0 0 24 24" fill="none" stroke="#0098F8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg>Comprueba lo aprendido</div>
-        <details><summary>¿Puede una planta dejar de aplicar el RD 1055/2022 ahora que hay reglamento europeo?</summary><p>No. Aplica el PPWR y sigue aplicando el RD en todo lo que no sea incompatible, hasta que se apruebe el nuevo real decreto.</p></details>
-        <details><summary>¿Por qué hay que anticiparse a fechas como 2029 o 2030?</summary><p>Porque cambiar registros, separar flujos o acordar formatos de datos con clientes lleva tiempo, y productores y SCRAP pedirán datos antes de que todo sea exigible.</p></details>
-        <details><summary>¿Qué evidencias respaldan el reciclado efectivo?</summary><p>Pesadas, partes de entrada, controles de calidad, registros de clasificación, albaranes de salida y certificados de destino.</p></details>
-      </div>
-      </div>
-    </section>
+      <section class="review" aria-labelledby="r1">
+        <h3 id="r1">Preguntas de repaso</h3>
+        <details><summary>¿Puede una planta dejar de aplicar el RD 1055/2022 ahora que hay reglamento europeo?</summary><p>No. Aplica el Reglamento y sigue aplicando el RD en todo lo que no sea incompatible, hasta que se apruebe el nuevo real decreto.</p></details>
+        <details><summary>¿Por qué preparar ya obligaciones que llegan en 2029 o 2030?</summary><p>Porque cambiar registros, separar flujos o acordar formatos de datos con los clientes lleva tiempo, y productores y SCRAP empezarán a pedir datos antes.</p></details>
+        <details><summary>¿Qué documentos respaldan el reciclado efectivo?</summary><p>Pesadas, partes de entrada, controles de calidad, registros de clasificación, albaranes de salida y certificados de destino.</p></details>
+      </section>
+    </div>
+  </article>
 
-    <!-- UNIDAD 2 -->
-    <section class="unit" id="u2" aria-labelledby="u2-t">
-      <div class="unit-head">
-        <span class="badge" aria-hidden="true">2</span>
-        <div><p>Unidad 2 · 8 min de lectura</p><h2 id="u2-t">Quién es quién y tipos de envase</h2></div>
-      </div>
-      <div class="body">
-      <div class="idea"><svg viewBox="0 0 24 24" fill="none" stroke="#D89820" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3z"/></svg><div><strong>En una frase</strong>Antes de tratar un residuo hay que saber qué es, de dónde viene y quién necesita los datos de su gestión.</div></div>
+  <!-- 2 -->
+  <article class="unit" id="u2" aria-labelledby="u2-t">
+    <header class="unit-h"><span class="num" aria-hidden="true">2</span><p class="kick">8 minutos de lectura</p><h2 id="u2-t">Quién es quién y tipos de envase</h2></header>
+    <div class="text">
+      <aside class="note"><b>Tres preguntas</b>Antes de tratar un residuo: qué es, de dónde viene y quién va a pedir los datos de su gestión.</aside>
+      <p class="lead-in">Buena parte del cumplimiento se decide en la báscula, antes de que el residuo entre en planta: hay que saber qué tipo de envase llega y qué papel tiene cada empresa de la cadena.</p>
 
       <h3>Las figuras de la cadena</h3>
       <div class="tbl"><table>
         <thead><tr><th>Figura</th><th>Qué hace</th><th>Qué debe tener claro el gestor</th></tr></thead>
         <tbody>
-          <tr><td>Productor del producto</td><td>Pone productos envasados en el mercado; tiene la RAP</td><td>No es el productor del residuo; puede pedir datos para acreditar objetivos</td></tr>
-          <tr><td>Envasador</td><td>Llena envases para vender productos</td><td>Separar residuo de envase de producto no conforme o residuo de producción</td></tr>
-          <tr><td>Importador</td><td>Introduce productos envasados en España o la UE</td><td>Obligaciones parecidas al productor; pedirá trazabilidad cuidada</td></tr>
-          <tr><td>Distribuidor</td><td>Almacena, transporta o vende</td><td>Cartón, film, palés y flejes; anotar si llega separado o mezclado</td></tr>
+          <tr><td>Productor del producto</td><td>Pone productos envasados en el mercado; asume la RAP</td><td>No es lo mismo que el productor del residuo. Puede pedir datos para acreditar objetivos</td></tr>
+          <tr><td>Envasador</td><td>Llena envases para vender productos</td><td>Distinguir residuo de envase de producto no conforme o residuo de producción</td></tr>
+          <tr><td>Importador</td><td>Introduce productos envasados en España o en la UE</td><td>Obligaciones parecidas a las del productor; pedirá trazabilidad cuidada</td></tr>
+          <tr><td>Distribuidor</td><td>Almacena, transporta o vende</td><td>Entrega cartón, film, palés y flejes. Anotar si llega separado o mezclado</td></tr>
           <tr><td>Usuario profesional</td><td>Usa el producto en su actividad</td><td>Genera envases comerciales o industriales que debe entregar a gestor</td></tr>
           <tr><td>Poseedor final</td><td>Tiene el residuo antes de entregarlo</td><td>Interlocutor habitual: contrato, condiciones de entrega, segregación</td></tr>
-          <tr><td class="hl">Gestor</td><td>Recoge, clasifica, trata y valoriza según autorización</td><td>Documentar, conservar evidencias y dar datos veraces</td></tr>
+          <tr><td>Gestor</td><td>Recoge, clasifica, trata y valoriza según su autorización</td><td>Documentar, conservar evidencias y dar datos que pueda sostener</td></tr>
         </tbody>
       </table></div>
-      <div class="pair">
-        <div><b>Productor del producto</b>Quien pone en el mercado el producto envasado y responde de la RAP.</div>
-        <div><b>Productor del residuo</b>Quien genera el residuo, por ejemplo un almacén que desembala mercancía.</div>
-      </div>
-      <p>Una misma empresa puede ocupar varios papeles a la vez. El gestor no asume las obligaciones de diseño, etiquetado o registro del fabricante, y no debe prometer datos que no pueda respaldar con registros.</p>
+
+      <aside class="note"><b>Ejemplo</b>Un almacén logístico que desembala mercancía y entrega film y cartón es productor del residuo, no del producto.</aside>
+      <p>La confusión más frecuente es entre <b>productor del producto</b>, quien pone en el mercado el producto envasado y responde de la RAP, y <b>productor del residuo</b>, quien genera el residuo en su actividad. Una misma empresa puede tener varios papeles a la vez. El gestor no asume las obligaciones de diseño, etiquetado o registro del fabricante, y no debe comprometer datos que no pueda respaldar con sus registros.</p>
 
       <h3>Tipos de envase</h3>
       <div class="tbl"><table>
         <thead><tr><th>Tipo</th><th>Ejemplos</th><th>Qué vigilar</th></tr></thead>
         <tbody>
           <tr><td>Doméstico</td><td>Botellas, latas, briks, envases ligeros</td><td>Impropios y datos de reciclado</td></tr>
-          <tr><td>Comercial</td><td>Cajas de reposición, film retráctil, flejes</td><td>Depende mucho de la segregación en origen</td></tr>
-          <tr><td>Industrial</td><td>Big bags, bidones, sacos, GRG/IBC</td><td>Restos de producto, peligrosidad, autorización</td></tr>
-          <tr><td>De transporte</td><td>Palés, cajas, jaulas, film de paletizado</td><td>Distinguir reutilizable de residuo</td></tr>
+          <tr><td>Comercial</td><td>Cajas de reposición, film retráctil, flejes</td><td>La calidad depende de la segregación en origen</td></tr>
+          <tr><td>Industrial</td><td>Big bags, bidones, sacos, GRG</td><td>Restos de producto, peligrosidad, autorización</td></tr>
+          <tr><td>De transporte</td><td>Palés, cajas, jaulas, film de paletizado</td><td>Si es reutilizable o ya es residuo</td></tr>
           <tr><td>De servicio</td><td>Bolsas, vasos, envases de comida para llevar</td><td>Suele llegar mezclado con otros flujos</td></tr>
         </tbody>
       </table></div>
-      <p class="formula">Se clasifica por <span>material + función + origen + estado + destino previsto</span>, no solo por material.</p>
+      <p class="rule">Se clasifica por material, función, origen, estado y destino previsto, no solo por material.</p>
 
       <h3>Reutilizable, reciclable, compostable, problemático</h3>
-      <ul class="clean">
-        <li><b>Reutilizable.</b> Dentro de un sistema de reutilización no es residuo. Si el poseedor ya se ha desprendido de él, limpiarlo o repararlo es preparación para la reutilización y lo hace un gestor autorizado.</li>
-        <li><b>Reciclable.</b> Solo si se puede recoger, clasificar y reciclar sin perder calidad. Etiquetas, tintas, multicapa o restos lo complican.</li>
-        <li><b>Compostable.</b> Mezclado con plástico convencional se comporta como impropio.</li>
-        <li><b>Problemático.</b> Multimaterial, con restos, plástico negro que los ópticos no detectan o formatos pequeños. Hay que vigilar rechazos y rendimientos.</li>
+      <ul class="plain">
+        <li><b>Reutilizable.</b> Mientras siga en un sistema de reutilización no es residuo. Si el poseedor ya se ha desprendido de él, limpiarlo o repararlo es preparación para la reutilización y la hace un gestor autorizado.</li>
+        <li><b>Reciclable.</b> Solo si se puede recoger, clasificar y reciclar sin perder calidad. Etiquetas, tintas, multicapas o restos lo complican.</li>
+        <li><b>Compostable.</b> Mezclado con plástico convencional actúa como impropio.</li>
+        <li><b>Problemático.</b> Multimaterial, con restos, plástico negro que los separadores ópticos no detectan o formatos muy pequeños. Se nota en rechazos y rendimientos.</li>
       </ul>
 
-      <h3>Recepción en seis pasos</h3>
-      <ol class="steps">
-        <li>Origen y contrato: cliente, actividad, frecuencia y condiciones de aceptación.</li>
-        <li>Documento de traslado y código LER.</li>
-        <li>Inspección visual: material, mezcla, impropios, humedad y contaminación.</li>
-        <li>Separar lo reutilizable o reparable.</li>
-        <li>Clasificar por material y calidad.</li>
-        <li>Registrar rechazos, impropios y salidas.</li>
+      <h3>Recepción, paso a paso</h3>
+      <ol class="proc">
+        <li><span>Origen y contrato: cliente, actividad, frecuencia y condiciones de aceptación.</span></li>
+        <li><span>Documento de traslado y código LER.</span></li>
+        <li><span>Inspección visual: material, mezcla, impropios, humedad y contaminación.</span></li>
+        <li><span>Separar lo reutilizable o reparable.</span></li>
+        <li><span>Clasificar por material y calidad.</span></li>
+        <li><span>Registrar rechazos, impropios y salidas.</span></li>
       </ol>
-      <p>Si entra una mezcla de palés, film y cartón que luego se separa, no se registra como una sola fracción genérica: la trazabilidad tiene que reflejar lo que pasa de verdad en planta.</p>
+      <aside class="note warn"><b>Ojo con el registro</b>Una mezcla de palés, film y cartón que luego se separa no se registra como una sola fracción genérica.</aside>
+      <p>La trazabilidad tiene que reflejar lo que de verdad ocurre en planta, sobre todo si después un cliente o un SCRAP pide datos por material y destino.</p>
 
       <h3>Cuando el envase trae algo dentro</h3>
-      <figure class="diagram">
-        <svg viewBox="0 0 760 520" role="img" aria-labelledby="flow-t">
-          <title id="flow-t">Decisión ante un envase con restos: identificar el contenido, comprobar la autorización y separar o rechazar</title>
-          <defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#7A8894"/></marker></defs>
-          <g font-family="Public Sans, sans-serif" font-size="14" text-anchor="middle">
-            <g fill="none" class="s-edge" stroke-width="1.25">
-              <path d="M210 106V134" marker-end="url(#arr)"/><path d="M330 170H410" marker-end="url(#arr)"/><path d="M210 206V244" marker-end="url(#arr)"/><path d="M210 296V334" marker-end="url(#arr)"/><path d="M330 370H410" marker-end="url(#arr)"/><path d="M210 406V444" marker-end="url(#arr)"/>
+      <p>Con producto caducado, bidones con restos o big bags con polvo, lo que manda es el contenido, no el envase.</p>
+      <figure>
+        <svg viewBox="0 0 640 440" role="img" aria-labelledby="fl-t">
+          <title id="fl-t">Decisión ante un envase con restos</title>
+          <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 1L9 5L0 9" fill="none" stroke="var(--ink)" stroke-width="1.5"/></marker></defs>
+          <g font-size="15" fill="var(--ink)">
+            <g fill="none" stroke="var(--ink)" stroke-width="1.2">
+              <path d="M150 52V88" marker-end="url(#ah)"/><path d="M150 140V178" marker-end="url(#ah)"/><path d="M150 232V268" marker-end="url(#ah)"/><path d="M150 320V356" marker-end="url(#ah)"/>
+              <path d="M280 114H372" marker-end="url(#ah)"/><path d="M280 294H372" marker-end="url(#ah)"/>
             </g>
-            <rect x="60" y="54" width="300" height="52" rx="10" fill="none" class="s-edge"/><text class="s-ink" x="210" y="85" font-weight="600">Llega un envase a recepción</text>
-            <polygon points="90,170 210,134 330,170 210,206" fill="none" class="s-edge"/><text class="s-ink" x="210" y="175">¿Lleva restos o contenido?</text>
-            <rect x="410" y="144" width="300" height="52" rx="10" fill="none" class="s-edge"/><text class="s-ink" x="560" y="166" font-weight="600">Envase limpio</text><text class="s-ink2" x="560" y="185" font-size="12.5">Clasificar por material y calidad</text>
-            <rect x="60" y="244" width="300" height="52" rx="10" fill="none" class="s-edge"/><text class="s-ink" x="210" y="266" font-weight="600">Identificar el contenido</text><text class="s-ink2" x="210" y="285" font-size="12.5">FDS, código LER y peligrosidad</text>
-            <polygon points="90,370 210,334 330,370 210,406" fill="none" class="s-edge"/><text class="s-ink" x="210" y="375">¿La autorización lo cubre?</text>
-            <rect x="410" y="344" width="300" height="52" rx="10" fill="var(--bad-tint)" stroke="var(--bad)" stroke-width="2"/><text class="s-ink" x="560" y="366" font-weight="600">Rechazar o derivar</text><text class="s-ink2" x="560" y="385" font-size="12.5">a un gestor autorizado especializado</text>
-            <rect x="60" y="444" width="300" height="52" rx="10" fill="var(--blue-tint)" stroke="#0098F8" stroke-width="2"/><text class="s-ink" x="210" y="466" font-weight="600">Separar envase y contenido</text><text class="s-ink" x="210" y="485" font-size="12.5">solo si está autorizado, y documentarlo</text>
-            <g class="s-ink2" font-size="12.5"><text x="370" y="162">no</text><text x="226" y="230" text-anchor="start">sí</text><text x="370" y="362">no</text><text x="226" y="430" text-anchor="start">sí</text></g>
-            <text class="s-ink2" x="410" y="474" font-size="12.5" text-anchor="start">Nunca mezclar con envases limpios</text><text class="s-ink2" x="410" y="492" font-size="12.5" text-anchor="start">destinados a reciclado</text>
+            <text x="20" y="38" font-weight="650">Llega un envase a recepción</text>
+            <rect x="20" y="88" width="260" height="52" fill="none" stroke="var(--ink)" stroke-width="1.2"/><text x="36" y="119">¿Lleva restos o contenido?</text>
+            <rect x="20" y="178" width="260" height="54" fill="none" stroke="var(--ink)" stroke-width="1.2"/><text x="36" y="201" font-weight="650">Identificar el contenido</text><text x="36" y="221" font-size="13.5" fill="var(--ink-2)">ficha de seguridad, LER, peligrosidad</text>
+            <rect x="20" y="268" width="260" height="52" fill="none" stroke="var(--ink)" stroke-width="1.2"/><text x="36" y="299">¿Lo cubre la autorización?</text>
+            <rect x="20" y="356" width="260" height="62" fill="none" stroke="#0098F8" stroke-width="2"/><text x="36" y="382" font-weight="650">Separar envase y contenido</text><text x="36" y="402" font-size="13.5" fill="var(--ink-2)">solo si está autorizado, y documentarlo</text>
+            <text x="376" y="110" font-weight="650">Envase limpio</text><text x="376" y="130" font-size="13.5" fill="var(--ink-2)">clasificar por material y calidad</text>
+            <text x="376" y="290" font-weight="650" fill="var(--red)">Rechazar o derivar</text><text x="376" y="310" font-size="13.5" fill="var(--ink-2)">a un gestor autorizado especializado</text>
+            <g font-size="13.5" fill="var(--ink-2)"><text x="300" y="106">no</text><text x="160" y="164">sí</text><text x="300" y="286">no</text><text x="160" y="344">sí</text></g>
+            <text x="376" y="384" font-size="13.5" fill="var(--ink-2)">Nunca se mezcla con envases</text><text x="376" y="402" font-size="13.5" fill="var(--ink-2)">limpios destinados a reciclado.</text>
           </g>
         </svg>
-        <figcaption>Con producto caducado, bidones con restos o big bags con polvo, manda el contenido, no el envase.</figcaption>
+        <figcaption>Si se trata como envase limpio, el código LER deja de reflejar lo recibido, se contaminan líneas y balas, aparece un riesgo de seguridad y el comprador puede rechazar el material.</figcaption>
       </figure>
-      <p>Tratar como envase limpio algo que no lo es abre cinco riesgos: documental (el LER no refleja lo recibido), operativo (contamina líneas y balas), de seguridad, comercial (el comprador rechaza el material) y de trazabilidad.</p>
 
-      <div class="check">
-        <div class="check-head"><svg viewBox="0 0 24 24" fill="none" stroke="#0098F8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg>Comprueba lo aprendido</div>
+      <section class="review" aria-labelledby="r2">
+        <h3 id="r2">Preguntas de repaso</h3>
         <details><summary>Un almacén logístico entrega film y cartón del desembalaje. ¿Es productor del producto?</summary><p>No necesariamente. Es productor del residuo o poseedor final; el productor del producto suele ser otra empresa.</p></details>
         <details><summary>Llegan palés de madera: unos buenos, otros rotos y otros manchados. ¿Qué se hace?</summary><p>Separarlos por estado: reutilización, reparación, reciclado o valorización, y rechazo para los contaminados, según contrato y autorización.</p></details>
-        <details><summary>¿Un envase compostable puede ir con el plástico?</summary><p>No. En reciclado mecánico se comporta como impropio; sigue las instrucciones del flujo que le corresponda.</p></details>
-      </div>
-      </div>
-    </section>
-
-    <section class="unit" id="pronto" aria-labelledby="pr-t">
-      <div class="unit-head">
-        <span class="badge" aria-hidden="true" style="background:var(--rule);color:var(--ink-2)">…</span>
-        <div><p>Próximas unidades</p><h2 id="pr-t">En preparación</h2></div>
-      </div>
-      <ul class="next">
-        <li><b>Unidad 3</b>Obligaciones aplicables: nuevas y vigentes</li>
-        <li><b>Unidad 4</b>Responsabilidad ampliada del productor y sistemas de cumplimiento</li>
-        <li><b>Unidad 5</b>Papel práctico de los gestores de residuos</li>
-        <li><b>Unidad 6</b>Operativa por flujos: domésticos, comerciales e industriales</li>
-        <li><b>Unidad 7</b>Procesos internos, contratos y control documental</li>
-        <li><b>Unidad 8</b>Adaptación del modelo de negocio del gestor</li>
-        <li><b>Unidad 9</b>Casos prácticos finales y plan de acción</li>
-      </ul>
-    </section>
-
-    <section class="unit" id="glosario" aria-labelledby="gl-t">
-      <div class="unit-head">
-        <span class="badge" aria-hidden="true">A</span>
-        <div><p>Anexo</p><h2 id="gl-t">Glosario</h2></div>
-      </div>
-      <dl class="gloss">
-        <dt>PPWR</dt><dd>Reglamento (UE) 2025/40 sobre envases y residuos de envases (Packaging and Packaging Waste Regulation).</dd>
-        <dt>RAP</dt><dd>Responsabilidad ampliada del productor: quien pone el producto en el mercado organiza y financia la gestión de sus residuos.</dd>
-        <dt>SCRAP</dt><dd>Sistema colectivo de responsabilidad ampliada del productor, que cumple la RAP por cuenta de varios productores.</dd>
-        <dt>LER</dt><dd>Lista Europea de Residuos: el código que identifica cada residuo en la documentación de traslado.</dd>
-        <dt>FDS</dt><dd>Ficha de datos de seguridad del producto; clave para saber qué restos lleva un envase.</dd>
-        <dt>GRG / IBC</dt><dd>Gran recipiente a granel, el contenedor industrial de unos 1.000 litros con jaula.</dd>
-        <dt>Impropio</dt><dd>Material que no corresponde al flujo en el que llega y reduce su calidad.</dd>
-        <dt>Poseedor final</dt><dd>Quien tiene el residuo en su poder antes de entregarlo a un gestor.</dd>
-      </dl>
-    </section>
-  </main>
-</div>
-
-<footer class="foot">
-  <div class="wrap">
-    <div class="foot-grid">
-      <a class="foot-logo" href="https://pelayoingenieriadigital.es" target="_blank" rel="noopener"><img src="assets/pid-mark.png" alt="Pelayo Ingeniería Digital" width="50" height="64"></a>
-      <div>
-        <h2>Una guía de Pelayo Ingeniería Digital</h2>
-        <p>Apuntes elaborados por Sergio Pelayo a partir del curso «PPWR y residuos de envases: guía práctica para gestores de residuos» y del propio Reglamento (UE) 2025/40.</p>
-        <p>Es material de consulta y no sustituye al texto legal ni a la autorización de cada instalación.</p>
-      </div>
-      <a class="btn" href="https://pelayoingenieriadigital.es" target="_blank" rel="noopener">Contactar con PID</a>
+        <details><summary>¿Un envase compostable puede ir con el plástico?</summary><p>No. En reciclado mecánico actúa como impropio; sigue las instrucciones del flujo que le corresponda.</p></details>
+      </section>
     </div>
-    <div class="legal"><span>Versión 0.2 · 26-10-2026</span><span><a href="https://pelayoingenieriadigital.es" target="_blank" rel="noopener">pelayoingenieriadigital.es</a> · Tu compañero de negocios</span></div>
+  </article>
+
+  <article class="unit" id="glosario" aria-labelledby="g-t">
+    <header class="unit-h"><p class="kick">Anexo</p><h2 id="g-t">Glosario</h2></header>
+    <dl class="gloss">
+      <div><dt>PPWR</dt><dd>Reglamento (UE) 2025/40 sobre envases y residuos de envases.</dd></div>
+      <div><dt>RAP</dt><dd>Responsabilidad ampliada del productor: quien pone el producto en el mercado organiza y financia la gestión de sus residuos.</dd></div>
+      <div><dt>SCRAP</dt><dd>Sistema colectivo de responsabilidad ampliada del productor.</dd></div>
+      <div><dt>LER</dt><dd>Lista Europea de Residuos; el código que identifica cada residuo en la documentación.</dd></div>
+      <div><dt>FDS</dt><dd>Ficha de datos de seguridad del producto.</dd></div>
+      <div><dt>GRG</dt><dd>Gran recipiente para mercancías a granel, el contenedor de unos 1.000 litros con jaula (IBC).</dd></div>
+      <div><dt>Impropio</dt><dd>Material que no corresponde al flujo en el que llega y le resta calidad.</dd></div>
+      <div><dt>Poseedor final</dt><dd>Quien tiene el residuo antes de entregarlo a un gestor.</dd></div>
+    </dl>
+  </article>
+</main>
+
+<footer class="colophon">
+  <div class="page">
+    <a class="mark" href="https://pelayoingenieriadigital.es" target="_blank" rel="noopener"><img src="assets/pid-mark.png" alt="Pelayo Ingeniería Digital" width="56" height="72"></a>
+    <div>
+      <p class="who">Guía elaborada y publicada por Pelayo Ingeniería Digital.</p>
+      <p>Resumen propio a partir del curso «PPWR y residuos de envases: guía práctica para gestores de residuos» y del Reglamento (UE) 2025/40. Es material de consulta: no sustituye al texto legal ni a la autorización de cada instalación.</p>
+      <p>Edición 0.3, 26 de octubre de 2026. Contacto en <a href="https://pelayoingenieriadigital.es" target="_blank" rel="noopener">pelayoingenieriadigital.es</a>.</p>
+    </div>
   </div>
 </footer>
-
-<a class="totop" id="totop" href="#" aria-label="Volver arriba"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 15l6-6 6 6"/></svg></a>
-
-<script>
-(function(){
-  var bar=document.getElementById('progress'), top=document.getElementById('totop');
-  var links=[].slice.call(document.querySelectorAll('.toc a[href^="#u"],.toc a[href="#glosario"]'));
-  function onScroll(){
-    var h=document.documentElement, max=h.scrollHeight-h.clientHeight;
-    bar.style.width=(max>0?(h.scrollTop/max*100):0)+'%';
-    top.classList.toggle('show',h.scrollTop>600);
-  }
-  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
-  if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(es){
-      es.forEach(function(e){ if(e.isIntersecting){
-        links.forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id);});
-      }});
-    },{rootMargin:'-30% 0px -60% 0px'});
-    links.forEach(function(a){var s=document.querySelector(a.getAttribute('href')); if(s) io.observe(s);});
-  }
-})();
-</script>
 </body>
 </html>
