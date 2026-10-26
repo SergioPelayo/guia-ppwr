@@ -8,4 +8,4 @@ Elaborado por Sergio Pelayo · [Pelayo Ingeniería Digital](https://pelayoingeni
 
 Material de consulta: no sustituye al texto legal ni a la autorización de cada instalación.
 
-Edición 0.3 · 26-10-2026 (diseño de manual técnico, fuentes alojadas en la propia web)
+Edición 0.3.1 · 26-10-2026 (mención a Medio Ambiente de Acerinox Europa S.A.U.)
