@@ -8,4 +8,4 @@ Elaborado por Sergio Pelayo · [Pelayo Ingeniería Digital](https://pelayoingeni
 
 Material de consulta: no sustituye al texto legal ni a la autorización de cada instalación.
 
-Edición 0.4 · 26-10-2026 (buscador con respuestas directas)
+Edición 0.5 · 27-10-2026 (unidades 3, 4 y 5)
